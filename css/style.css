@@ -20,6 +20,35 @@ body {
   color: #828282;
   background: #fff;
 }
+/* Add your existing styles here */
+
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Set a high z-index value to keep it on top */
+  transition: transform 0.3s ease-in-out, 
+              border 0.3s ease-in-out;
+}
+
+.whatsapp-icon a {
+  display: inline-block;
+  position: relative;
+}
+
+.whatsapp-icon img {
+  width: 100%; /* Make sure the image takes up the entire container */
+  border: 10px solid transparent; /* Set initial border to be transparent */
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, 
+              border 0.3s ease-in-out;
+}
+
+.whatsapp-icon:hover img {
+  transform: scale(1.2) rotate(360deg);
+  border: 10px solid #d1c286; /* Adjust the border thickness and color */
+}
+
 
 #page {
   position: relative;
