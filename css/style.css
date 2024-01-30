@@ -26,6 +26,54 @@ ul {
   background-color: #2c3e50;
   padding: 15px;
 }
+.expand-button {
+  cursor: pointer;
+  background-color: #d1c286;
+  color: #fff;
+  border: none;
+  
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.expand-content {
+  text-align: center;
+}
+
+/* Styles for the slider */
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.slider-image {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
 
 /* Styling the menu items */
 .menu-item {
@@ -95,9 +143,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000; /* Set a high z-index value to keep it on top */
-  transition: transform 0.3s ease-in-out, 
-              border 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .whatsapp-icon a {
@@ -105,18 +151,59 @@ body {
   position: relative;
 }
 
+/* Set a maximum width for the image */
 .whatsapp-icon img {
-  width: 100%; /* Make sure the image takes up the entire container */
-  border: 10px solid transparent; /* Set initial border to be transparent */
-  border-radius: 50%;
-  transition: transform 0.3s ease-in-out, 
-              border 0.3s ease-in-out;
+  width: 100%;
+  max-width: 50px; /* Adjust the maximum width as needed */
+  border: 10px solid transparent;
+  border-radius: 80%;
+  animation: pulseImage 2s infinite; /* 2s duration, infinite loop */
+}
+.whatsapp-icon::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 10px solid rgba(0, 175, 100, 0.2); /* Green color with 20% opacity */
+  border-radius: 80%;
+  animation: pulseBorder 2s infinite cubic-bezier(0.4, 0, 0.2, 1); /* 2s duration, cubic-bezier easing, infinite loop for the outer green border */
 }
 
-.whatsapp-icon:hover img {
-  transform: scale(1.2) rotate(360deg);
-  border: 10px solid #d1c286; /* Adjust the border thickness and color */
+
+/* Pulse animation for the image */
+@keyframes pulseImage {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+  }
 }
+
+/* Pulse and fade animation for the outer green border */
+@keyframes pulseBorder {
+  0%, 100% {
+    border: 10px solid rgba(0, 175, 100, 0.2);
+    transform: scale(1);
+  }
+  25% {
+    border: 15px solid rgba(0, 175, 100, 0.15);
+    transform: scale(1.1);
+  }
+  50% {
+    border: 20px solid rgba(0, 175, 100, 0.1);
+    transform: scale(1.2);
+  }
+  75% {
+    border: 25px solid rgba(0, 175, 100, 0.05);
+    transform: scale(1.3);
+  }
+}
+/* Media query for smaller screens, adjust as needed */
+
+
 
 
 #page {
@@ -930,6 +1017,7 @@ figure {
   display: block;
   text-align: center;
   margin-left: 3px;
+  
 }
 
 .fh5co-bg-section {
@@ -2080,6 +2168,39 @@ figure {
   opacity: 0;
 }
 
+.img-fluid {
+  height: 70px;
+}
+
 /*# sourceMappingURL=style.css.map */
 
+/* query for mobile */
+/* Styles for all screen sizes */
+/* Default styles for all screen sizes (height: 70px) */
+
+
+/* Media query for screen widths between 300px and 1440px (height: 50px) */
+@media only screen and (min-width: 300px) and (max-width: 1440px) {
+  .img-fluid {
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-icon {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .whatsapp-icon img {
+    max-width: 60px; /* Adjust the maximum width for smaller screens */
+  }
+}
+
+/* Disable auto-sliding on mobile devices */
+@media screen and (max-width: 768px) {
+  #fh5co-hero .flexslider {
+    animation: none;
+  }
+}
 
