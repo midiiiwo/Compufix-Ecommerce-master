@@ -170,6 +170,34 @@ body {
   border-radius: 80%;
   animation: pulseBorder 2s infinite cubic-bezier(0.4, 0, 0.2, 1); /* 2s duration, cubic-bezier easing, infinite loop for the outer green border */
 }
+.fake-chat {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+
+.message {
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.incoming {
+  background-color: #f2f2f2;
+}
+
+.outgoing {
+  background-color: #4caf50;
+  color: #fff;
+}
 
 
 /* Pulse animation for the image */
@@ -2172,6 +2200,10 @@ figure {
   height: 70px;
 }
 
+img .item{
+  width: 200px; /* Set the desired width */
+  height: auto; /* Automatically adjust the height to maintain the aspect ratio */
+}
 /*# sourceMappingURL=style.css.map */
 
 /* query for mobile */
